@@ -32,9 +32,9 @@ function Tranaction_view() {
 
   return (
     <div className='container-view-section'>
-        <Transaction_header catagories={(data:any)=>{setnewCatagories(data)}}/>
+        <Transaction_header catagories={(data)=>{setnewCatagories(data)}}/>
         <div className='container-viewItem'>
-            {data!==undefined?data.map((datause:any,i:any)=>(
+            {data!==undefined?data.map((datause,i)=>(
                 <Card_View_Item key={i} datause={datause} data={data}/>
             )):<></>}
         </div>
