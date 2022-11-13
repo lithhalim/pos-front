@@ -1,0 +1,26 @@
+@use "../../../../main-style/style.scss";
+.container-information-dashboard{
+    display: grid; grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    gap: 15px; padding:  20px;
+    .item-information-container{
+        border-radius: 10px; padding: 10px;
+        display: flex; justify-content: space-between; align-items: center;
+        li{
+            font-weight: bold; text-transform: capitalize; 
+            &:last-child{
+                font-size: 3em;
+            }
+            p{
+                padding: 8px 0px; color: style.$color-w;
+                &:first-child{
+                    text-align: center; font-size: 1.2em;
+                }
+                &:last-child{
+                    padding: 10px; font-size: .9em;
+                }
+
+            }
+            
+        }
+    }
+}

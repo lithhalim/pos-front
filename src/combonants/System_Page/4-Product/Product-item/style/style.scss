@@ -1,0 +1,25 @@
+.product-container{
+    background-color: rgba(192, 192, 192, 0.178); border-radius: 10px; font-weight: bold;
+    .Image-container{
+        width: 100%;
+        img {
+            display: block; margin-left: auto; margin-right: auto;
+            width: 45px; height: 45px; border-radius: 5px;
+        }
+    }
+
+    .catagory-container{
+        width: 80%; margin-left: auto; margin-right: auto;
+        padding: 3px 25px; font-weight: bold; color: white; background-color: blueviolet;
+        border-radius: 10px; text-align: center;
+    }
+
+    .delete-Product{
+        width: 100%;
+        button {
+            background-color: red; padding: 5px 25px; margin-left: auto; margin-right: auto;
+            display: block; border: none; border-radius: 5px;color: white; cursor: pointer;
+            font-weight: bold;
+        }
+    }
+}

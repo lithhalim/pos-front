@@ -1,0 +1,29 @@
+@use "../../../../../../main-style/style.scss";
+
+.header-invios-payment{
+.first-section{
+    display: flex; justify-content: space-between; padding: 0px 10px;
+    padding-top: 5px; color: style.$main-color;
+    border-bottom: 2px solid silver;
+    span{
+        font-size: 1.5em; cursor: pointer;
+    }    
+}
+.type-payment{
+    display: flex; font-size: 1em; justify-content: space-around;
+    border-bottom: 2px solid silver; font-weight: bold;
+    li{
+        display: flex; justify-content: center;cursor: pointer;
+        width: 140px; text-align: center; padding: 10px 0px;
+        span {
+            &:first-child{
+                font-size: 1.2em; display: inline-block; margin-right: 5px; margin-top:- 3px;
+            }
+        }
+    }
+    li.active {
+        border-bottom: 2px solid style.$main-color;
+    }
+}
+
+}

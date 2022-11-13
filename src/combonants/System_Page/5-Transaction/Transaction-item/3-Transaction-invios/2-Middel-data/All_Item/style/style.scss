@@ -1,0 +1,19 @@
+@use "../../../../../../../main-style/style.scss";
+
+.container-currency-section-have{
+    width: 180px; border: 2px solid style.$main-color;
+    border-radius: 5px; margin-bottom: 15px; height: 30px;
+    margin-top: 15px;
+
+    img {
+        width: 25px;height: 25px;
+    }
+    select {
+        border: none; width: 150px; position: absolute;font-weight: bold;
+        height: 25px; font-size: .9em; text-align: center; text-transform: capitalize;
+        
+        option {
+            font-size: .9em; font-weight: bold;
+        }
+    }
+}

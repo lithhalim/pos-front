@@ -1,0 +1,33 @@
+@use '../../../../../../../main-style/style.scss';
+
+.container-all-middel-data{
+    position: relative;
+    .submit-change{
+        background-color: style.$main-color;
+        width: 180px; height: 35px; color: white; border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .sideImage{
+        position: absolute; right: 0; top: -15px;
+        img {
+            width: 240px; height: 200px;
+        } 
+    }
+
+    .container-input{
+        .container-item{
+            border: 2px solid style.$main-color; border-radius: 5px;
+            width: 180px; margin-bottom: 15px;
+            span {
+                font-size: 1.4em;margin-top: 2px;
+            }
+
+            input {
+                width: 150px; border: none;
+                text-align: center; font-size: 1.2em; font-weight: bold;
+            }
+        }
+        margin-bottom: 10px;
+    }
+}

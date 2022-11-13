@@ -1,0 +1,24 @@
+*{margin: 0; padding: 0; list-style: none; box-sizing: border-box; text-decoration: none;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: white;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(21, 8, 34);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(21, 8, 34);
+  }
+  

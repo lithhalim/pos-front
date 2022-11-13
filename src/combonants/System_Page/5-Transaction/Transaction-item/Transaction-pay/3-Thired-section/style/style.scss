@@ -1,0 +1,15 @@
+@use "../../../../../../main-style/style.scss";
+.thired-section{
+    display: flex; justify-content: space-around;
+    .cancel ,.pay {
+        display: flex; align-items: center; justify-content: center;
+        border-radius: 20px; background-color: style.$main-color;
+        border: none; width: 160px; padding: 5px 0px; cursor: pointer;
+        font-weight: bold; font-weight: bold; color: white; margin-top: 10px;
+        span {
+            &:first-child{
+                font-size: 1.4em; margin-right: 5px; margin-top: 2px;
+            }
+        }
+    }
+}

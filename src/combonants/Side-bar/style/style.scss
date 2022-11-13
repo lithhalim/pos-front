@@ -1,0 +1,46 @@
+@use "../../main-style/style.scss";
+.sidebar-section{
+    position: fixed; left: 0; top: 8vh; width: 80px;padding: 10px; z-index: 100000;
+    background-color:style.$main-color; color: white;height: 92vh;
+
+  
+
+    img {
+        position: absolute; left: 0px; top: -50px; width: 80px; height: 60px;z-index: 10000000000000000000000;
+    }
+    .icon-container{
+        margin-bottom: 10px; border-radius: 5px;
+        height: 55px; padding: 5px 0px;cursor: pointer;
+        p{
+            text-align: center;
+            &:first-child{font-size: 1.5em; margin-bottom: 1px;}
+            &:last-child{font-size: .6em; font-weight: bold;}
+        }
+    }
+    .icon-container.active {
+        background-color: style.$background;
+        color:  style.$main-color;
+    }
+
+}
+
+@media screen and (max-width:765px) {
+    .sidebar-section{
+        display: none;
+    }
+    .sidebar-section.active{
+        display: block; 
+        img {display: none;}
+        width: 50vw;
+        animation-name: sidebar;
+        animation-duration: 1s;
+    
+    }
+
+}
+
+@keyframes sidebar {
+    from {transform: translateX(-100vh);}
+    to {transform: translateX(0px);}
+  }
+  

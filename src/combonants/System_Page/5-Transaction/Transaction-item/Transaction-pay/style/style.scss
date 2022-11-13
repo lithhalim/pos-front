@@ -1,0 +1,67 @@
+@use "../../../../../main-style/style.scss";
+
+.Crat-section{
+    padding: 20px;
+    h3 {
+        padding: 15px; text-align: center;
+    }
+    .container-all-itempay{
+        max-height: 200px; overflow-y: scroll; height: 200px;
+    }
+    .item-container{
+        display: flex;
+        margin-bottom: 5px; align-items:center; 
+        img {
+            width: 40px ;height: 40px;
+        }
+        .text-area{
+            font-size: .8em;
+            p{
+                &:first-child{margin-bottom: 10px;}
+            }
+        }
+        li {
+            &:first-child{
+                flex-basis: 33%; display: flex; align-items: center; font-weight: bold;
+                p {
+                    margin-bottom: 2px; font-size: .9em;
+                }
+                img {
+                    margin-right: 5px; border-radius: 5px;
+                }
+            }
+
+
+            &:nth-child(2){
+                flex-basis: 33%; color: style.$main-color; font-size: 1.5em; display: flex;
+                align-items: center; font-weight: bold;  justify-content: end;
+                p{
+                    font-size: .7em; padding: 1px 10px; width: 35px; display: flex; justify-content: center;
+                    margin-top: -4px;
+                }
+                span {
+                    cursor: pointer;
+                }
+            }
+        &:last-child{
+            font-weight: bold;  flex-basis: 33%; display: flex; align-items: center; justify-content: end;
+        }
+
+
+
+        }
+    }
+
+
+    .price-section-total{
+        margin-top: 20px;
+        li{
+            padding: 5px 0px; font-weight: bold; font-size: .9em;
+            display: flex;
+            justify-content: space-between;
+            &:last-child{
+                font-size: 1em;
+            }
+        }
+    }
+}
