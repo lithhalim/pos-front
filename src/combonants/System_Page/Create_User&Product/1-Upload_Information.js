@@ -77,7 +77,7 @@ const SignupSchema = Data_Details.SignupSchema
                         {errors[Data_Details.select.name] && touched[Data_Details.select.name] ? <div className='error-section'>{errors[Data_Details.select.name]}</div> : null}
                         
 
-                        <Submit_UploadPhoto GetPhoto={(data)=>{setSaveImage(data)}}/>
+                        <Submit_UploadPhoto GetPhoto={(data)=>{setSaveImage(data.url)}}/>
                         {ImageError?<p className='ImageError' style={{textAlign:"center",marginTop:"5px"}}>{ImageError}</p>:<></>}
                       
                     </Form>)}

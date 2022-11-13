@@ -4,11 +4,11 @@ import Button from '@mui/material/Button';
 import axios from 'axios';
 
 
-function Submit_UploadPhoto({GetPhoto}:any) {
-    const [ImageUpload,setImageUpload]=useState<any>(false)
+function Submit_UploadPhoto({GetPhoto}) {
+    const [ImageUpload,setImageUpload]=useState(false)
 
 
-    const getImage_file=async(e:any)=>{
+    const getImage_file=async(e)=>{
         //get the file i will uolodad
         let file=e.target.files[0]
 
@@ -20,8 +20,8 @@ function Submit_UploadPhoto({GetPhoto}:any) {
         formData.append('upload_preset', 'ugtx75zu');
         //upload the data on cloudnary https://api.cloudinary.com/v1_1/{cloud name}/upload
     await axios.post("https://api.cloudinary.com/v1_1/lithhalim/upload",formData).then((alldata)=>{
-        GetPhoto(alldata.data?.url)
-        setImageUpload(alldata.data?.url)
+        GetPhoto(alldata.data)
+        setImageUpload(alldata.data)
     })
 }
 
@@ -36,7 +36,7 @@ function Submit_UploadPhoto({GetPhoto}:any) {
             <input hidden accept="image/*" multiple type="file" name="imagesection" onChange={getImage_file} />
         </Button>
         <div className='container-image-upload'>
-            {ImageUpload?<img src={ImageUpload} alt="" />:<></>}
+            {ImageUpload?<img src={ImageUpload.url} alt="" />:<></>}
         </div>
                      
        <button className='submit-button-section' type="submit">Submit All Data</button>          
