@@ -50,6 +50,7 @@
     "react-select-country-list": "^2.2.3",
     "react-shorten-url": "^1.0.5",
     "react-spring": "^9.5.0",
+    "react-uuid": "^2.0.0",
     "sass": "^1.54.0",
     "simple-peer": "^9.11.1",
     "socket.io-client": "^4.5.1",
