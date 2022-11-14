@@ -31,27 +31,29 @@ export const options = {
     },
     title: {
       display: true,
-      text: 'Chart.js Line Chart',
+      text: 'Last 10 Transaction ',
     },
   },
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
-export const data = {
-  labels,
-  datasets: [
-    {
-      fill: true,
-      label: 'Dataset 2',
-      data:[100,50,10,1,15,100,15,8,15,1,10],
-      borderColor: 'rgb(53, 162, 235)',
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
-    },
-  ],
-};
 
-export function DashboardChart() {
+export function DashboardChart({datause}:any) {
+
+  const labels = datause.map((data:any,i:any)=>{return (data.createdAt.slice(0,6))})
+  const data = {
+    labels,
+    datasets: [
+      {
+        fill: true,
+        label: 'Transaction',
+        data:datause.map((data:any,i:any)=>{return data.TotalPrice}),
+        borderColor: 'rgb(53, 162, 235)',
+        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+      },
+    ],}
+
+
   return (
             <div className='chart-section'> 
                 <Line options={options} data={data} />

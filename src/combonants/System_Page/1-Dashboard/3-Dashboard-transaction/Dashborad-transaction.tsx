@@ -27,30 +27,33 @@ export const options = {
     },
     title: {
       display: true,
-      text: 'Chart.js Bar Chart',
+      text: 'Last 10 Transaction ',
     },
   },
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Dataset 1',
-      data: [1,2,3,4,5,6,4,1,6],
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    },
-    {
-      label: 'Dataset 2',
-      data:[1,2,3,4,5,6,4,1,6],
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
-    },
-  ],
-};
+ 
 
-export function DashboardBar() {
+export function DashboardBar({datause}:any) {
+
+  const labels = datause.map((data:any,i:any)=>{return (data.createdAt.slice(0,6))});
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: 'Total Price',
+        data: datause.map((data:any,i:any)=>{return data.TotalPrice}),
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      },
+      {
+        label: "Number Item",
+        data:datause.map((data:any,i:any)=>{return data.NumberItem}),
+        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+      },
+    ],
+  };
+
   return (
     <div className='chart-section'> 
         <Bar options={options} data={data} />

@@ -1,0 +1,41 @@
+@use "../../../../main-style/style.scss";
+.commenecation-frind{
+flex-basis:20%;
+  border-right: 2px solid style.$main-color;
+
+ .header-connection{
+    height: 10vh; background-color: style.$main-color;
+    display: flex; justify-content: center; align-items: center;
+    font-weight: bold; 
+    color: white;
+ }
+
+    .container-item{
+        display: flex;  padding: 6px 10px;
+        li{
+            display: flex; flex-direction: column; justify-content: start;
+            &:last-child{
+                h4 {
+                    margin-bottom: 2px; 
+                }
+                p{
+                    font-size: .8em; font-weight: bold;
+
+                    span {
+                        position: relative; padding-right: 12px;
+                        &::before{
+                            content: "";
+                            width: 10px; height: 10px; position: absolute; left: 0; top: 2.5px;
+                            background-color: green; border-radius: 5px;
+                        }    
+                    }
+
+                }
+
+            }
+        }
+        img {
+            width: 35px; height: 35px; border-radius: 50%; margin-right: 5px;
+        }
+    }
+}

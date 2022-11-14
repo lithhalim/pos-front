@@ -1,0 +1,85 @@
+@use "../../../../../main-style/style.scss";
+.container-all-file{
+    flex-basis: 80%;
+    .header{
+        display: flex; justify-content: start; 
+        align-items: center; margin-bottom: 15px;
+        justify-content: space-between; background-color: style.$main-color;
+         height: 10vh; padding: 0px 15px;
+    
+        span {
+            font-size: 1.4em; margin-right: 10px;
+        }
+        img {
+            width: 35px; height: 35px; border-radius: 50%;
+        }
+        
+    
+        .search{
+            display: flex; background-color: white; border: 1px solid silver;
+            padding: 5px; text-align: center; align-items: center; border-radius: 30px;
+            input {
+                border: none; width: 180px;
+            }
+    
+            li{
+                &:first-child{
+                    font-size: 1em; margin-top: 3px; 
+                }
+                &:last-child{
+                    padding: 0px 6px; text-transform: capitalize;
+                    width: 200px;
+                }
+            }
+        }
+    }    
+
+
+
+
+
+
+
+    //-------------------------chate section view ----------------------------------------//
+    .chate-view{
+        padding: 10px; height: 60vh; overflow-y: scroll;
+        .item-container-chate{
+            display: flex; margin-bottom: 5px;
+        }
+        .image-container{
+            margin-right: 8px;
+            img {
+                width: 35px; height: 35px; border-radius: 50%;
+            }
+        }
+        .text-area{
+            .data{
+                display: flex; width: 160px; justify-content: space-between;
+                align-items: center;
+                padding: 5px 0px;
+                li{
+                  
+                    &:first-child{
+                        font-weight: bold; font-size: 1em;
+                    }
+                }
+            }
+        }
+    }
+
+
+    //-----------------------------input section -------------------------------------------//
+    .chate_input-section{
+        margin-top: 15px;
+        width: 100%; height: 35px;
+        form {
+            display: flex; align-items: center;height: 35px;
+            input {
+                width: 100%;height: 90%; padding: 10px;
+            }
+            span {
+                font-size: 1.5em; cursor: pointer;
+            }    
+        }
+    }
+}

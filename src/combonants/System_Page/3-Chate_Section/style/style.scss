@@ -1,0 +1,8 @@
+@use "../../../main-style/style.scss";
+
+.container-chate-section{
+    position: absolute; left: 0; top: 0;
+    margin-left: 100px; display: flex; 
+    border: 2px solid style.$main-color;
+    margin-top: 80px; width: 85vw; border-radius: 10px;
+}
