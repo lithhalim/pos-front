@@ -21,7 +21,7 @@ function Product_main() {
     <motion.div className='container-product-main'
       initial={{x:"-100vw"}}
       animate={{x:0}}
-      transition={{duration:1}}>
+      transition={{duration:.5}}>
         <ul className='create-product-header'>
             <li onClick={showCreateModel}><span><MdOutlineAddBox/></span><span>Create Product</span> </li>
             <li>

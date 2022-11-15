@@ -5,6 +5,7 @@ import axios from 'axios';
 const initialState = {
   value: 0,
   allProduct:[]
+
 }
 
 if(window.localStorage.AddToCart){
@@ -26,8 +27,10 @@ export const addToCartSlice = createSlice({
         // axios.post(`${process.env.REACT_APP_API}addBasket`,action.payload)
     },
     clearAllData:(state,action)=>{
+      localStorage.removeItem("AddToCart");
       state.value=0;
-      state.allProduct=[]
+      state.allProduct=[];
+
     },
     removeFromCart: (state, action) => {
         state.value=state.value-=1;

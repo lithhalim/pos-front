@@ -16,7 +16,7 @@ function User_Section() {
     <motion.div className='container-product-main'
       initial={{x:"-100vw"}}
       animate={{x:0}}
-      transition={{duration:1}}>
+      transition={{duration:.5}}>
         <ul className='create-product-header'>
             <li onClick={()=>{Product_Context_Item.setshowCreateUser(true)}}><span><MdOutlineAddBox/></span><span>Create User</span> </li>
             <li style={{border:"none"}}></li>
