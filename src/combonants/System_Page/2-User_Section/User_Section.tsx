@@ -8,8 +8,8 @@ import Table_Get_Data_AllUser from './User-Table/User_Table';
 
 
 function User_Section() {
-
  const Product_Context_Item=useContext(Product_Context);
+ 
 
   
   return (

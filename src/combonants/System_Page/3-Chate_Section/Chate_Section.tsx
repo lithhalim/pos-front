@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Commenction_Frind from './chate_Item/1-connection-frind/1-Commenction_Frind';
 import Chate_Zone from './chate_Item/2-chate-File/Chate_Zone';
 import "./style/style.scss";

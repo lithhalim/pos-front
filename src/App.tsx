@@ -19,7 +19,7 @@ import { Invios_Provider } from "./context-api/Invios-context";
 import Data_Print from "./combonants/Printer_Data/Data_Print";
 import Report_Section from "./combonants/System_Page/6-Report/Report_Section";
 import Chate_Section from "./combonants/System_Page/3-Chate_Section/Chate_Section";
-import { Massage_Provider } from "./context-api/massage-context";
+import Page_Not_Found from "./combonants/page-not-found/Page_Not_Found";
 
 
 
@@ -32,7 +32,6 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
         <Provider store={store}>
-          <Massage_Provider>
             <Invios_Provider>
               <Product_Provider>
                   <Login_Provider>
@@ -42,7 +41,8 @@ function App() {
                                 <Route path="/dashboard" element={<><Header_system/> <SideBar_Section/> <Dashbord_main/> </>}/>
                                   <Route path="/product" element={<><Header_system/> <SideBar_Section/> <Product_main/> </>}/>
                                     <Route path="/Transaction" element={<><Header_system/> <SideBar_Section/> <Transaction_main/><Data_Print/>  </>}/>
-                                      <Route path="/chate" element={<><Header_system/> <SideBar_Section/> <Chate_Section/>  </>}/>
+                                      <Route path="*" element={<><Page_Not_Found/></>}/>
+                                    <Route path="/chate" element={<><Header_system/> <SideBar_Section/> <Chate_Section/>  </>}/>
                                   <Route path="/Report" element={<><Header_system/> <SideBar_Section/> <Report_Section/><Data_Print/> </>}/>
                               <Route path="/User" element={<><Header_system/> <SideBar_Section/> <User_Section/> </>}/>
                           </Routes>
@@ -50,7 +50,6 @@ function App() {
                   </Login_Provider>
                 </Product_Provider>
               </Invios_Provider>
-            </Massage_Provider>
         </Provider>
     </QueryClientProvider>
   );

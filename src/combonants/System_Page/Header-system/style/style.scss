@@ -13,7 +13,28 @@
 
     .icon-section{ 
         display: flex; align-items: center; width: 90px; justify-content: space-between;
-        text-transform: uppercase; font-weight: bold; font-size: .8em;
+        text-transform: uppercase; font-weight: bold; font-size: .8em; position: relative;
+
+        .logout-bar-section{
+            position: absolute; background-color: white; color: style.$main-color;border-radius: 10px;
+            left: -25px; top: 43px; width: 130px; padding: 10px; border: 1px solid style.$main-color;
+            
+            li{
+                padding: 5px 5px;
+                &:first-child{
+                    cursor: pointer;
+                    display: flex; justify-content: start; align-items: center;
+                    h4 { 
+                        font-size: .9em;margin-left: 5px;
+                    }
+                }
+                button {
+                    width: 100%; height: 35px; background-color: style.$main-color;
+                    color: white; font-weight: bold; border-radius: 5px;
+                    cursor: pointer;
+                }
+            }
+        }
 
         li{
             cursor: pointer;

@@ -9,6 +9,7 @@ import "./style/style.scss";
 import {RiDeleteBin5Line} from "react-icons/ri";
 import {motion} from "framer-motion";
 import { Product_Context } from '../../../../context-api/product-context';
+import { Login_Create_Context } from '../../../../context-api/authntication-context';
 
 
 
@@ -19,12 +20,18 @@ import { Product_Context } from '../../../../context-api/product-context';
 
 function Table_Get_Data() {
     const Product_Context_Item=useContext(Product_Context);
+    const Login_Create_ContextAuth=useContext(Login_Create_Context)
     
 
     function usePosts() {
         return useQuery([`getDataHave`,Product_Context_Item.showCreatItem], async () => {
           const { data } = await axios.get(
-            `${process.env.REACT_APP_API}getpostes`);
+            `${process.env.REACT_APP_API}getpostes`,{
+              headers:{ 
+                'Content-Type': 'application/json' ,
+                'Accept': 'application/json',
+                "authorization":`Bearer ${Login_Create_ContextAuth.accsisToken }` }
+            });
           return data;
         });
       }  
