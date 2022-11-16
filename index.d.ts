@@ -7,7 +7,10 @@ declare module "*.png" {
 declare module "*.webp" {
     export default "" as string;
   }
-  declare module "*.svg" {
+declare module "*.svg" {
+    export default "" as string;
+  }
+declare module "*.gif" {
     export default "" as string;
   }
 

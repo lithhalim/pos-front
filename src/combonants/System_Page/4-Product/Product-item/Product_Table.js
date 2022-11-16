@@ -10,7 +10,8 @@ import {RiDeleteBin5Line} from "react-icons/ri";
 import {motion} from "framer-motion";
 import { Product_Context } from '../../../../context-api/product-context';
 import { Login_Create_Context } from '../../../../context-api/authntication-context';
-
+import { Alert_Create_Context } from '../../../../context-api/Alert_context';
+import alertImage from "../../../../assest/alert/alert1.gif";
 
 
 
@@ -21,7 +22,9 @@ import { Login_Create_Context } from '../../../../context-api/authntication-cont
 function Table_Get_Data() {
     const Product_Context_Item=useContext(Product_Context);
     const Login_Create_ContextAuth=useContext(Login_Create_Context)
-    
+    const Alert_Create_Context_Section=useContext(Alert_Create_Context);
+
+
 
     function usePosts() {
         return useQuery([`getDataHave`,Product_Context_Item.showCreatItem], async () => {
@@ -40,9 +43,13 @@ function Table_Get_Data() {
 
 
       const deleteItem=(event)=>{
-        let id=event.currentTarget.getAttribute("datatype");
-        axios.post(`${process.env.REACT_APP_API}DeleteItem`,{id:id})
-        refetch()
+        if(Login_Create_ContextAuth.AllUserDaata.role=="admin"){
+          let id=event.currentTarget.getAttribute("datatype");
+          axios.post(`${process.env.REACT_APP_API}DeleteItem`,{id:id})
+          refetch()  
+        }else{
+          Alert_Create_Context_Section.setRunAlert({Value:"Just Admin Can Do That",image:alertImage})
+        }
       }
 
 

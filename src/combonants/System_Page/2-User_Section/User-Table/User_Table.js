@@ -10,6 +10,9 @@ import {RiDeleteBin5Line} from "react-icons/ri";
 import {motion} from "framer-motion";
 import { Product_Context } from '../../../../context-api/product-context';
 import { Login_Create_Context } from '../../../../context-api/authntication-context';
+import { Alert_Create_Context } from '../../../../context-api/Alert_context';
+
+import alertImage from "../../../../assest/alert/alert1.gif";
 
 
 
@@ -17,8 +20,10 @@ import { Login_Create_Context } from '../../../../context-api/authntication-cont
 
 function Table_Get_Data_AllUser() {
     const Product_Context_Item=useContext(Product_Context);
-    const Login_Create_ContextAuth=useContext(Login_Create_Context)
-    
+    const Login_Create_ContextAuth=useContext(Login_Create_Context);
+    const Alert_Create_Context_Section=useContext(Alert_Create_Context)
+
+  
 
     function usePosts() {
         return useQuery([`getDataHave`,Product_Context_Item.showCreateUser], async () => {
@@ -37,9 +42,13 @@ function Table_Get_Data_AllUser() {
 
 
       const deleteItem=(event)=>{
-        let regusterid=event.currentTarget.getAttribute("datatype");
-        axios.post(`${process.env.REACT_APP_API}removeUser`,{regusterid:regusterid})
-        refetch()
+        if(Login_Create_ContextAuth.AllUserDaata.role=="admin"){
+          let regusterid=event.currentTarget.getAttribute("datatype");
+          axios.post(`${process.env.REACT_APP_API}removeUser`,{regusterid:regusterid})
+          refetch()  
+        }else{
+          Alert_Create_Context_Section.setRunAlert({Value:"Just Admin Can Do That",image:alertImage})
+        }
       }
 
 

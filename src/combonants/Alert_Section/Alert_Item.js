@@ -2,7 +2,7 @@ import React,{useContext} from 'react';
 import "./style/style.scss";
 import {motion} from "framer-motion";
 import {AiFillCloseCircle} from "react-icons/ai"
-import { Alert_Create_Context } from '../../context-api/Alert-Context';
+import { Alert_Create_Context } from '../../context-api/Alert_context';
 
 function Alert_Section() {
 

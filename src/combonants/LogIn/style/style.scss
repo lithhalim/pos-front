@@ -72,3 +72,29 @@ h6{
     }
 }
 }
+
+
+@media screen and (max-width:950px) {
+
+    .login-container{
+        background-color: style.$background; padding: 0px ;
+        .holder-login{
+            background-image: none; border-radius: 0px;
+            padding: 20px;
+        }
+    }
+    .container-header-sign{
+        display: none;
+    }
+    .signin-container{
+        margin-top: -10px;
+    }
+
+
+}
+
+@media screen and (max-width:450px) {
+
+
+
+}

@@ -22,7 +22,7 @@
 //---------------------------view container -----------------------------------------//
 .container-view-section{
     background-color: white;  border-radius: 10px;
-    flex-basis: 67%;height: 76vh; overflow-y: scroll;
+    flex-basis: 67%;height: 76vh; overflow-y: scroll; 
 
     .container-viewItem{
         display: grid; grid-template-columns: repeat(auto-fill,minmax(110px,1fr));

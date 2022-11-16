@@ -1,0 +1,83 @@
+@use "../../../main-style/style.scss";
+.container-product-main {
+  padding: 80px 50px 0px 100px;
+  height: 92vh;
+}
+
+.container-product-main .create-product-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.container-product-main .create-product-header li:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: blueviolet;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  padding: 5px 15px;
+}
+
+.container-product-main .create-product-header li:first-child span {
+  margin-right: 5px;
+  cursor: pointer;
+  font-size: .8em;
+}
+
+.container-product-main .create-product-header li:first-child span:first-child {
+  margin-top: 4px;
+  font-size: 1.2em;
+}
+
+.container-product-main .create-product-header li:last-child {
+  border: 1px solid silver;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 250px;
+}
+
+.container-product-main .create-product-header li:last-child input {
+  border: none;
+  padding: 5px;
+  margin: 5px;
+  display: block;
+  width: 85%;
+}
+
+.container-product-main .create-product-header li:last-child span {
+  font-size: 1.2em;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (max-width: 765px) {
+  .container-product-main {
+    padding: 80px 15px 0px 15px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

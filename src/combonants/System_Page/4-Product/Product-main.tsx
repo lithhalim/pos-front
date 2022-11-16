@@ -6,15 +6,28 @@ import {MdOutlineAddBox} from "react-icons/md"
 import { motion } from 'framer-motion';
 import Create_Prodect from "../Create_User&Product/Create_Prodect";
 import { Product_Context } from '../../../context-api/product-context';
-
+import { Login_Create_Context } from '../../../context-api/authntication-context';
+import { Alert_Create_Context } from '../../../context-api/Alert_context';
+import alertImage from "../../../assest/alert/alert1.gif";
 
 
 function Product_main() {
   
 
   const Product_Context_Item=useContext(Product_Context);
+
+  const Login_Create_ContextAuth=useContext(Login_Create_Context);
+  const Alert_Create_Context_Section=useContext(Alert_Create_Context)
+
+
   const showCreateModel=()=>{
-    Product_Context_Item.setshowCreatItem(true)
+    if(Login_Create_ContextAuth.AllUserDaata.role=="admin"){
+      Product_Context_Item.setshowCreatItem(true);
+    }
+    else{
+      Alert_Create_Context_Section.setRunAlert({Value:"Just Admin Can Do That",image:alertImage})
+    }
+
   }
 
 
