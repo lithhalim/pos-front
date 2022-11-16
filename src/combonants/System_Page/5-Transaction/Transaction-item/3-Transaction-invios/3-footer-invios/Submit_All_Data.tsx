@@ -16,6 +16,7 @@ function Submit_All_Data({CashVlue}:any) {
     let [AllItemData,setAllItemData]=useState<any>([]);
     const dispatch=useDispatch()
 
+
     
 
 
@@ -27,6 +28,8 @@ function Submit_All_Data({CashVlue}:any) {
         })
         setAllItemData(dataUse)
       },[])
+
+      console.log(invios_Context_Element.newPrice)
     
 
       const SubmitAllData=()=>{    
@@ -41,11 +44,13 @@ function Submit_All_Data({CashVlue}:any) {
             delivery:invios_Context_Element.DeleverDescount.delevery,
             descount:invios_Context_Element.DeleverDescount.descout}
 
-        axios.post(`${process.env.REACT_APP_API}createinvios`,dataSent).then((data)=>{
-            invios_Context_Element.setshowPaymentPage(false);
-            invios_Context_Element.setAllDataPrint(data.data);
-            dispatch(clearAllData({}))
-        })  
+            console.log(dataSent)
+
+        // axios.post(`${process.env.REACT_APP_API}createinvios`,dataSent).then((data)=>{
+        //     invios_Context_Element.setshowPaymentPage(false);
+        //     invios_Context_Element.setAllDataPrint(data.data);
+        //     dispatch(clearAllData({}))
+        // })  
 
       }
 

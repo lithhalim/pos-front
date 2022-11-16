@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {useSelector} from 'react-redux';
 
 //use to create the context 
@@ -18,6 +18,10 @@ const[showPaymentPage,setshowPaymentPage]=useState(false);
 
 //Set The Price Afetr Update The Value
 const [newPrice,setNewPrice]=useState(totalPrice!==undefined?Number(totalPrice):0)
+
+useEffect(()=>{
+  setNewPrice(Number(totalPrice))
+},[selectData])
 
 //The Delevery And The Descount value Section 
 const [DeleverDescount,setDeleverDescount]=useState({descout: 0, delevery: 0, currency: 'USA'})
