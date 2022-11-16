@@ -37,7 +37,7 @@ export const options = {
 
 export function DashboardBar({datause}:any) {
 
-  const labels = datause.map((data:any,i:any)=>{return (data.createdAt.slice(0,6))});
+  const labels = datause.filter((data:any,i:any)=>(i<25)).map((data:any,i:any)=>{return (data.createdAt.slice(0,6))});
   const data = {
     labels,
     datasets: [

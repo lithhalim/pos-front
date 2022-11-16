@@ -3,7 +3,6 @@ import {BiSearch} from "react-icons/bi"
 
 
 function Chate_Header({datause}:any) {
-    console.log(datause)
   return (
     <div className='header'>
         <ul className='search'>

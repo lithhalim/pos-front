@@ -1,41 +1,51 @@
-import React, { useEffect, useRef, useState } from 'react'
+import axios from 'axios';
+import React, { useEffect, useRef, useState } from 'react';
+
+import {AiOutlineSend} from "react-icons/ai"
+
+
 
 
 import io from 'socket.io-client';
-const socket = io(`${process.env.REACT_APP_API}`);
+import Recive_Massage from './Chate_Card/Recive_Massage';
+import Send_Massage from './Chate_Card/Send_Massage';
+const socket = io(`${process.env.REACT_APP_API}`,);
 
 
-function Chate_View({datause,AllMassages}) {
-
+function Chate_View({datause}) {
     const [datamassage,setdatamassage]=useState([]);
+    const {Image,fullName,regusterid:id,role}=datause;
 
-
+    // Get All Massage Save Database First Time
     useEffect(()=>{
-        socket.on("get-massage",(data)=>{
-            setdatamassage(oldData=>[...oldData,data]); 
-
+        axios.get(`${process.env.REACT_APP_API}getdata`).then((data)=>{
+            setdatamassage(data.data)
         })
-      },[socket]);
-
-    useEffect(()=>{
-        socket.emit("joinMyroom",datause.regusterid)
     },[])
-    
+  
 
-
+    //Get All New Massage From Socket Io
     useEffect(()=>{
-        setdatamassage(AllMassages)
-    },[AllMassages])
+        //The Recive Massages
+        socket.on("recivemassage",(data)=>{
+            console.log(data)
+            setdatamassage((olddatadata)=>[...olddatadata,data])
+        })
+        // Remove Dubliccate The Function Section
+        return function cleanup() {
+            socket.removeListener("recivemassage");
+        };  
+    },[socket])
 
+
+    //New Massage You Accepted
     const massage_Filed=useRef();
-
     const getdata=(event)=>{
         event.preventDefault()
-        const {Image,fullName,regusterid,role}=datause;
-        let Datasend={Image:Image,fullName:fullName,regusterid:regusterid,role:role,text:massage_Filed.current.value,time:Date.now()}
-        socket.emit("Send_Massage",Datasend);
-        massage_Filed.current.value=""
-      }
+        let Datasend={Image:Image,fullName:fullName,regusterid:id,role:role,text:massage_Filed.current.value,time:new Date()}
+        massage_Filed.current.value="";
+        socket.emit("sendmassage",Datasend)
+    }
     
 
 
@@ -45,27 +55,19 @@ function Chate_View({datause,AllMassages}) {
   return (
     <>
         <div className='chate-view'>
-            {datamassage.length>0? datamassage.map(({Image,fullName,regusterid,role,text,time},i)=>(
-                <div className='item-container-chate'>
-                    <div className='image-container'>
-                        <img src={Image} alt="" />
-                    </div>
-                    <div className='text-area'>
-                        <ul className='data'>
-                            <li>{fullName}</li>
-                            <li>{role}</li>
-                            <li>{time}</li>
-                        </ul>
-                        <p>{text}</p>
-                    </div>
-                </div>
+            {datamassage.length>0? datamassage.map((dataUse,i)=>(
+                <>
+                    {id==dataUse.regusterid?<Recive_Massage dataUse={dataUse}  key={i}/>:
+                    <Send_Massage dataUse={dataUse}  key={i}/>
+                    }
+                </>
             )):<></>}
         
         </div>
         <div className='chate_input-section'>
             <form action="">
                 <input type="text" name="data" ref={massage_Filed} />
-                <button onClick={getdata}>Send</button>
+                <button onClick={getdata}>Send <AiOutlineSend/></button>
             </form>
         </div>
     </>

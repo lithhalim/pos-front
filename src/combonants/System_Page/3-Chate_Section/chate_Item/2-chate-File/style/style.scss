@@ -44,25 +44,29 @@
     .chate-view{
         padding: 10px; height: 60vh; overflow-y: scroll;
         .item-container-chate{
-            display: flex; margin-bottom: 5px;
+            display: flex; margin-bottom: 10px;
         }
         .image-container{
-            margin-right: 8px;
+            margin: 0px  8px; 
             img {
-                width: 35px; height: 35px; border-radius: 50%;
+                width: 40px; height: 40px; border-radius: 15px;
             }
         }
         .text-area{
             .data{
-                display: flex; width: 160px; justify-content: space-between;
-                align-items: center;
-                padding: 5px 0px;
                 li{
-                  
+                    font-weight: bold; text-transform: capitalize;
                     &:first-child{
-                        font-weight: bold; font-size: 1em;
+                        font-size: .8em; margin-bottom: 3px;
+                    }
+                    &:last-child{
+                        font-weight: normal; font-size: .7em;
                     }
                 }
+            }
+            p{
+                padding: 8px 5px; font-weight: bold; background-color: rgba(192, 192, 192, 0.39);
+                border-radius: 10px; margin-top: 3px; font-size: .8em;
             }
         }
     }
@@ -75,11 +79,14 @@
         form {
             display: flex; align-items: center;height: 35px;
             input {
-                width: 100%;height: 90%; padding: 10px;
+                 padding: 10px;width: 100%;
             }
-            span {
-                font-size: 1.5em; cursor: pointer;
-            }    
+            button {
+                width: 160px; display: flex; justify-content: space-around;
+                font-weight: bold; background-color: style.$main-color; font-size: 1.2em;
+                align-items: center; cursor: pointer; color: white;
+                height: 36px; padding: 0px 30px;
+            }
         }
     }
 }

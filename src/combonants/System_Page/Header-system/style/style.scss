@@ -12,7 +12,8 @@
 
 
     .icon-section{ 
-        display: flex; align-items: center; width: 110px; justify-content: space-between;
+        display: flex; align-items: center; width: 90px; justify-content: space-between;
+        text-transform: uppercase; font-weight: bold; font-size: .8em;
 
         li{
             cursor: pointer;

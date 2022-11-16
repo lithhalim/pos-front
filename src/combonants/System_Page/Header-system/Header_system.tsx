@@ -25,7 +25,6 @@ function Header_system() {
       </div>
       <p className='name-logo'>Foodinzoo</p>
       <ul className='icon-section'>
-        <li><MdOutlineMailOutline/></li>
         <li><img src={Login_Create_Context_Item.AllUserDaata?.Image} alt="" /></li>
         <li><span>{Login_Create_Context_Item.AllUserDaata?.role}</span></li>
       </ul>
