@@ -43,13 +43,12 @@ function Submit_All_Data({CashVlue}:any) {
             delivery:invios_Context_Element.DeleverDescount.delevery,
             descount:invios_Context_Element.DeleverDescount.descout}
 
-            console.log(dataSent)
 
-        // axios.post(`${process.env.REACT_APP_API}createinvios`,dataSent).then((data)=>{
-        //     invios_Context_Element.setshowPaymentPage(false);
-        //     invios_Context_Element.setAllDataPrint(data.data);
-        //     dispatch(clearAllData({}))
-        // })  
+        axios.post(`${process.env.REACT_APP_API}createinvios`,dataSent).then((data)=>{
+            invios_Context_Element.setshowPaymentPage(false);
+            invios_Context_Element.setAllDataPrint(data.data);
+            dispatch(clearAllData({}))
+        })  
 
       }
 
