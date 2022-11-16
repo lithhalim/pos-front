@@ -29,7 +29,6 @@ function Submit_All_Data({CashVlue}:any) {
         setAllItemData(dataUse)
       },[])
 
-      console.log(invios_Context_Element.newPrice)
     
 
       const SubmitAllData=()=>{    
