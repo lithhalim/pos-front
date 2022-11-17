@@ -4,7 +4,7 @@ import {AiFillCloseCircle,AiFillDollarCircle} from "react-icons/ai"
 import { invios_Context } from '../../../../../../context-api/Invios-context';
 
 
-function Button_Section({AllData,TotalPrice}:any) {
+function Button_Section() {
   const invios_Context_Show=useContext(invios_Context);
 
   const PayNow=()=>{

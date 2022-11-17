@@ -1,7 +1,12 @@
 import React from 'react'
 
-function Image_Name({datause}:any) {
-    const {Image,Price,productName,}=datause;
+import { Allproduct } from '../../../../../Interfaces/Interfaces_All';
+interface AllproductUse{
+    datause:Allproduct
+}
+
+function Image_Name({datause}:AllproductUse) {
+    const {Image,Price,productName}=datause;
 
   return (
     <li>

@@ -8,7 +8,7 @@ function Transaction_header({catagories}:any) {
         catagories(event.currentTarget.getAttribute("datatype"))
         let Item=event.currentTarget
         //Remove Active All Item
-        Item.parentElement.childNodes.forEach((data:any)=>{
+        Item.parentElement.childNodes.forEach((data:HTMLElement)=>{
             data.classList.remove("active");
         })
         //Add Class To Specific Item

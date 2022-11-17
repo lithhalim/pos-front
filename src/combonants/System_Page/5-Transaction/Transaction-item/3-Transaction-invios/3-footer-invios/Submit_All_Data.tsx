@@ -7,12 +7,20 @@ import { Login_Create_Context } from '../../../../../../context-api/authnticatio
 import { invios_Context } from '../../../../../../context-api/Invios-context';
 import { clearAllData } from '../../../../../../redux/addToCart';
 
+//interface Section
+import { Allproduct } from '../../../../../Interfaces/Interfaces_All';
+import { ReduxAllproduct } from '../../../../../Interfaces/Interfaces_All';
+interface CashVlueIn{
+    CashVlue:number
+}
 
-function Submit_All_Data({CashVlue}:any) {
+
+
+function Submit_All_Data({CashVlue}:CashVlueIn) {
 
     const User_Context_Element=useContext(Login_Create_Context);
     const invios_Context_Element=useContext(invios_Context);
-    const select=useSelector((state:any)=>(state.addToCartSlice));
+    const select=useSelector((state:ReduxAllproduct)=>(state.addToCartSlice));
     let [AllItemData,setAllItemData]=useState<any>([]);
     const dispatch=useDispatch()
 
@@ -23,7 +31,7 @@ function Submit_All_Data({CashVlue}:any) {
 
     useEffect(()=>{
         let dataUse:any=[];
-        select.allProduct.forEach((data:any)=>{
+        select.allProduct.forEach((data:Allproduct)=>{
             dataUse.push([data.productName,data.id,data.selectItemQuentuty,Number(data.selectItemQuentuty)*Number(data.Price)])
         })
         setAllItemData(dataUse)

@@ -3,23 +3,29 @@ import {AiOutlinePlusCircle,AiOutlineMinusCircle} from "react-icons/ai";
 import {  useSelector,useDispatch } from 'react-redux';
 import { modifyquantity, modifyquantitydecrese, removeFromCart } from '../../../../../../redux/addToCart';
 
+import { Allproduct } from '../../../../../Interfaces/Interfaces_All';
+import { ReduxAllproduct } from '../../../../../Interfaces/Interfaces_All'; 
+
+interface AllProductData{
+  datause:Allproduct
+}
 
 
-function AddRemove_Item({datause}:any) {
+function AddRemove_Item({datause}:AllProductData) {
     const {Image,Price,id,productName,selectItemQuentuty}=datause;
     const dispatch=useDispatch();
-    const selectData=useSelector((state:any)=>(state.addToCartSlice?.allProduct));
+    const selectData=useSelector((state:ReduxAllproduct)=>(state.addToCartSlice?.allProduct));
 
-
+    
     //Increse and Decrease Button
     const increseQuntity=(event:any)=>{
     let [id,Image,productName,Price,selectItemQuentuty]=event.currentTarget.getAttribute("datatype").split("###");
 
 
-    let ItemSelect=selectData.filter((data:any)=>(data?.id==id))
+    let ItemSelect=selectData.filter((data:Allproduct)=>(data?.id==id))
     //check Number Of Item Ihave In system 
     if((Number(ItemSelect[0].quantity)-Number(ItemSelect[0].selectItemQuentuty))===0){
-      console.log("empty item")
+      // console.log("empty item")
     }else{
       dispatch(modifyquantity({id:id,Image:Image,productName:productName,Price:Price}))
     }

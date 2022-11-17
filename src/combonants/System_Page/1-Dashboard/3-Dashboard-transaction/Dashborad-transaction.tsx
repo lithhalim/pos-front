@@ -1,4 +1,7 @@
 import React from 'react';
+import { DataChart } from '../../../Interfaces/Interfaces_All';
+
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -33,22 +36,26 @@ export const options = {
 };
 
 
- 
+interface ArrayDataChart{
+  datause:DataChart[]
+}
 
-export function DashboardBar({datause}:any) {
 
-  const labels = datause.filter((data:any,i:any)=>(i<25)).map((data:any,i:any)=>{return (data.createdAt.slice(0,6))});
+export function DashboardBar({datause}:ArrayDataChart) {
+
+
+  const labels = datause.filter((data:DataChart,i:number)=>(i<25)).map((data:DataChart,i:number)=>{return (data.createdAt.slice(0,6))});
   const data = {
     labels,
     datasets: [
       {
         label: 'Total Price',
-        data: datause.map((data:any,i:any)=>{return data.TotalPrice}),
+        data: datause.map((data:DataChart,i:number)=>{return data.TotalPrice}),
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
       {
         label: "Number Item",
-        data:datause.map((data:any,i:any)=>{return data.NumberItem}),
+        data:datause.map((data:DataChart,i:number)=>{return data.NumberItem}),
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
     ],

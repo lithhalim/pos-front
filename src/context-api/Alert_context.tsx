@@ -4,7 +4,13 @@ import React, { useState } from "react";
 export const  Alert_Create_Context=React.createContext<any|null>(null);
 
 
-export function Alert_Provider(props:any) {
+interface ContextChildreen{
+  children:React.ReactNode
+}
+
+
+
+export function Alert_Provider(props:ContextChildreen) {
     const [RunAlert,setRunAlert]=useState(false)
 
   return (

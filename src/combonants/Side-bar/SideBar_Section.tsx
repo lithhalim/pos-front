@@ -11,18 +11,16 @@ function SideBar_Section() {
 
     const Navi=useNavigate();
 
-
     const addAcctive=(event:any)=>{
-
-        let Item=event.currentTarget
-        //Remove Active All Item
-        Item.parentElement.childNodes.forEach((data:any)=>{
-            data.classList.remove("active");
-        })
-        //Add Class To Specific Item
-        Item.classList.add("active");
-        document.querySelector(".sidebar-section")?.classList.toggle("active")
-        Navi(Item.getAttribute("datatype"))
+            let Item=event.currentTarget
+            //Remove Active All Item
+            Item.parentElement?.childNodes.forEach((data:HTMLElement)=>{
+                data.classList.remove("active");
+            })
+            //Add Class To Specific Item
+            Item.classList.add("active");
+            document.querySelector(".sidebar-section")?.classList.toggle("active")
+            Navi(Item.getAttribute("datatype"))    
     }
   return (
     <div className='sidebar-section'>

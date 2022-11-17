@@ -2,32 +2,34 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addtocart, modifyquantity } from "../../../../redux/addToCart";
 
+import { Allproduct } from '../../../Interfaces/Interfaces_All';
+import { ReduxAllproduct } from '../../../Interfaces/Interfaces_All';
 
 function Card_View_Item({datause,data}:any) {
     datause.selectItemQuentuty=1
     const{Image,Price,productName,id}=datause;
     const dispatch=useDispatch();
-    const selectData=useSelector((state:any)=>(state))
+    const selectData=useSelector((state:ReduxAllproduct)=>(state))
   
 
       //------------------------------- Add To cart Section --------------------------------------//
     const BuyItem=(event:any)=>{
 
-    let Datause=data.filter((data:any)=>
+    let Datause=data.filter((data:Allproduct)=>
     (data.id==event.currentTarget.getAttribute("datatype")))[0];
 
     const id=Datause.id;
-    let  checkData= selectData.addToCartSlice.allProduct.findIndex((data:any)=>(data.id==id));
+    let  checkData= selectData.addToCartSlice.allProduct.findIndex((data:Allproduct)=>(data.id==id));
 
     if(checkData==-1){
       let DATA={selectItemQuentuty:1};
       let datahave={...Datause,...DATA}
       dispatch(addtocart(datahave))
     }else{
-      let ItemSelect=selectData.addToCartSlice.allProduct.filter((data:any)=>(data?.id==id))
+      let ItemSelect=selectData.addToCartSlice.allProduct.filter((data:Allproduct)=>(data?.id==id))
       //check Number Of Item Ihave In system 
       if((Number(ItemSelect[0].quantity)-Number(ItemSelect[0].selectItemQuentuty))===0){
-        console.log("No More Item")
+        // console.log("No More Item")
 
       }else{
         dispatch(modifyquantity(Datause))

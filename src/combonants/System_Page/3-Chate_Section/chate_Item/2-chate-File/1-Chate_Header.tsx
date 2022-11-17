@@ -1,8 +1,11 @@
 import React from 'react';
 import {BiSearch} from "react-icons/bi"
-import {BsPersonCircle} from "react-icons/bs"
+import {BsPersonCircle} from "react-icons/bs";
+import { Authntication } from '../../../../Interfaces/Interfaces_All';
 
-function Chate_Header({datause}:any) {
+
+
+function Chate_Header({datause}:Authntication) {
     const showConnection=()=>{
         document.querySelector(".commenecation-frind")?.classList.toggle("active")
     }

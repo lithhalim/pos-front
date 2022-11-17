@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
+import React, { ReactElement, useContext } from 'react';
 import {AiOutlineCloseCircle} from "react-icons/ai";
 import "./style/style.scss";
 import DataHeader_Invios from "./Data_Header"
 import { invios_Context } from '../../../../../../context-api/Invios-context';
+
 
 
 function Header_Invios_Pay(){
@@ -11,7 +12,7 @@ function Header_Invios_Pay(){
   const selectPayment=(event:any)=>{
     let Item=event.currentTarget
     //Remove Active All Item
-    Item.parentElement.childNodes.forEach((data:any)=>{
+    Item.parentElement.childNodes.forEach((data:HTMLElement)=>{
         data.classList.remove("active");
     })
     //Add Class To Specific Item
@@ -28,7 +29,7 @@ function Header_Invios_Pay(){
             <span onClick={closeInvios}><AiOutlineCloseCircle/></span>
         </div>
         <ul className='type-payment'>
-          {DataHeader_Invios.map(({name,Icon,classSeection,Value}:any,i)=>(
+          {DataHeader_Invios.map(({name,Icon,classSeection,Value}:any,i:number)=>(
             <li className={classSeection}
                   onClick={selectPayment} key={i} 
                   datatype={Value}>

@@ -1,7 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { Allproduct } from '../../../../../Interfaces/Interfaces_All';
 
-function Total_Price({datause}:any) {
-    const {selectItemQuentuty,Price}=datause
+interface AllProductData{
+  datause:Allproduct
+}
+
+function Total_Price({datause}:AllProductData) {
+    const {selectItemQuentuty,Price}=datause;
+
   return (
     <li>
             ${Number(Price)*Number(selectItemQuentuty)}

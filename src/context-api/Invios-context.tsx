@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from "react";
 import {useSelector} from 'react-redux';
-
+import { Allproduct } from "../combonants/Interfaces/Interfaces_All";
+import { ReduxAllproduct } from "../combonants/Interfaces/Interfaces_All";
 //use to create the context 
 export const invios_Context=React.createContext<any|null>(null);
 
+interface ContextChildreen{
+  children:React.ReactNode
+}
 
 
-export function Invios_Provider(props:any) {
+export function Invios_Provider(props:ContextChildreen) {
 //Get The Total Price For All Item Section
-const selectData=useSelector((state:any)=>(state.addToCartSlice?.allProduct));
-let totalPrice=selectData.reduce((acc:any,data:any)=>(acc+(Number(data.selectItemQuentuty)*Number(data.Price))),0);
-const [TotalPrice,setNewTotalPrice]=useState<any>(totalPrice!==undefined?Number(totalPrice):0);
+
+const selectData=useSelector((state:ReduxAllproduct)=>(state.addToCartSlice?.allProduct));
+
+let totalPrice=selectData.reduce((acc:number,data:Allproduct)=>(acc+(Number(data.selectItemQuentuty)*Number(data.Price))),0);
+const [TotalPrice,setNewTotalPrice]=useState<number|undefined>(totalPrice!==undefined?Number(totalPrice):0);
 
 
 //Show Th Invsios Page Section

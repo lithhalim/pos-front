@@ -28,7 +28,6 @@ function Chate_View({datause}) {
     useEffect(()=>{
         //The Recive Massages
         socket.on("recivemassage",(data)=>{
-            console.log(data)
             setdatamassage((olddatadata)=>[...olddatadata,data])
         })
         // Remove Dubliccate The Function Section
@@ -56,11 +55,11 @@ function Chate_View({datause}) {
     <>
         <div className='chate-view'>
             {datamassage.length>0? datamassage.map((dataUse,i)=>(
-                <>
-                    {id==dataUse.regusterid?<Recive_Massage dataUse={dataUse}  key={i}/>:
-                    <Send_Massage dataUse={dataUse}  key={i}/>
+                <div key={i}>
+                    {id==dataUse.regusterid?<Recive_Massage dataUse={dataUse}  />:
+                    <Send_Massage dataUse={dataUse}  />
                     }
-                </>
+                </div>
             )):<></>}
         
         </div>

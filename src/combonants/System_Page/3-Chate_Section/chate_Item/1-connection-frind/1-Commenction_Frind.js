@@ -46,9 +46,9 @@ function Commenction_Frind() {
         <p>All User In Chate Room</p>
       </div>
       {data!==undefined?data.map(({Image,action,fullName,role,regusterid},i)=>(
-        <>
+        <div key={i}>
           {Login_Create_Context_User?.regusterid!==regusterid?
-              <ul className='container-item' key={i}>
+              <ul className='container-item' >
                   <li>
                     <img src={Image} alt="" />
                   </li>
@@ -58,7 +58,7 @@ function Commenction_Frind() {
                   </li>
               </ul>
               :<></>}
-          </>
+          </div>
         )):<></>}
 
     </div>

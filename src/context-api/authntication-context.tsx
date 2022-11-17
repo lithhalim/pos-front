@@ -3,8 +3,12 @@ import React, { useState } from "react";
 //use to create the context 
 export const Login_Create_Context=React.createContext<any|null>(null);
 
+interface ContextChildreen{
+  children:React.ReactNode
+}
 
-export function Login_Provider(props:any) {
+
+export function Login_Provider(props:ContextChildreen) {
 
     const [AllUserDaata,setAllUserData]=useState(window.localStorage.SaveAuthnticaiton?JSON.parse(window.localStorage.SaveAuthnticaiton):false)
     const [signin,setsignin]=useState(false);

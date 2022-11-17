@@ -1,12 +1,19 @@
 import axios from 'axios'
 import React, {  useEffect, useState } from 'react';
 import currency_Data from "./select-correncyData";
-import { Formik, Form, Field } from 'formik';
+import {  Field } from 'formik';
 
 
 //First Flag
 import UsaFlag from "../../../../../../../assest/flags/usa.png"
-import "./style/style.scss"
+import "./style/style.scss";
+
+
+interface Currency {
+  name:string,
+  image:string,
+  value:string
+}
  
 function Select_Currency() {
     const [ImageCurrency,setImageCurrency]=useState<any>(UsaFlag);
@@ -31,7 +38,7 @@ useEffect(()=>{
     <div className='container-currency-section-have'>
             {ImageCurrency!==undefined?<img src={ImageCurrency} alt="" />:<></>}
                 <Field name="currency"  className="currency-check"  as="select">
-                    {currency_Data.map(({name,image,value}:any,i)=>(
+                    {currency_Data.map(({name,image,value}:Currency,i)=>(
                              <option value={`${value}###${image}`} key={i} >{name}</option>
                         ))}
                 </Field>

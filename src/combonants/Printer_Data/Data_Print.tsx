@@ -2,13 +2,13 @@ import React, { useContext } from 'react';
 import { invios_Context } from '../../context-api/Invios-context';
 import "./style/style.scss";
 
-let header=["item","barcode","quantity","price"]
+//header Invios Section 
+let header=["item","barcode","quantity","price"];
+
 
 function Data_Print() {
  const invios_Context_Element=useContext(invios_Context);
- let dataUse=invios_Context_Element.AllDataPrint
-
-
+ let dataUse=invios_Context_Element.AllDataPrint;
 
   return (
     <>
@@ -26,9 +26,9 @@ function Data_Print() {
             <tr>
                 {header.map((data,i)=>(<th key={i}>{data}</th>))}
             </tr>
-            {dataUse.AllDatauser.map((dataHave:any,i:any)=>(
+            {dataUse.AllDatauser.map((dataHave:Array<string|number>,i:number)=>(
                 <tr key={i}>
-                    {dataHave.map((item:any,i:any)=>(<td key={i}>{item}</td>))}
+                    {dataHave.map((item:string|number,i:number)=>(<td key={i}>{item}</td>))}
                 </tr>
             ))}
         </table>

@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import Moment from 'react-moment';
+import { ResiveMassage } from '../../../../../Interfaces/Interfaces_All';
 
-function Recive_Massage({dataUse}:any) {
+
+function Recive_Massage({dataUse}:ResiveMassage) {
     const {Image,fullName,regusterid,role,text,time}=dataUse;
 
     const RefButton=useRef<any>();
